@@ -43,11 +43,11 @@ jobs:
         id: check_changes
         run: |
           git fetch --all
-          git diff --quiet HEAD origin/main || echo "Changes detected"
+          git diff --quiet HEAD origin/main || echo "Changes detected" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
-        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'Changes detected'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
           prerelease: false
 
       - name: Upload ghost.srs
-        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'Changes detected'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,7 +69,7 @@ jobs:
           asset_content_type: application/octet-stream
 
       - name: Upload ghost.dat
-        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'Changes detected'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
