@@ -39,8 +39,15 @@ jobs:
         id: generate_tag
         run: echo "tag_name=daily-update-$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+      - name: Check for Changes Before Release
+        id: check_changes
+        run: |
+          git fetch --all
+          git diff --quiet HEAD origin/main || echo "Changes detected"
+
       - name: Create Release
         id: create_release
+        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,6 +58,7 @@ jobs:
           prerelease: false
 
       - name: Upload ghost.srs
+        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,6 +69,7 @@ jobs:
           asset_content_type: application/octet-stream
 
       - name: Upload ghost.dat
+        if: steps.check_changes.outputs["Changes detected"] == 'Changes detected'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
