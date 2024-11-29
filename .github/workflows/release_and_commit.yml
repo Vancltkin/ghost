@@ -2,30 +2,25 @@ name: Ghost Release and Commit
 
 on:
   schedule:
-    # Запуск каждый день в 00:00 по UTC
     - cron: '0 0 * * *'
-  workflow_dispatch: # Позволяет запускать вручную
+  workflow_dispatch:
 
 jobs:
   release_and_commit:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout репозитория
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Скачивание ghost.srs
       - name: Download ghost.srs
         run: |
           curl -L -o ghost.srs https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
 
-      # Скачивание ghost.dat
       - name: Download ghost.dat
         run: |
           curl -L -o ghost.dat https://github.com/jameszeroX/zkeen-domains/releases/latest/download/zkeen.dat
 
-      # Создание коммита с файлами
       - name: Commit Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -33,22 +28,24 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add ghost.srs ghost.dat
-          git commit -m "Update ghost files"
-          git push
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update ghost files"
+            git push
+          fi
 
-      # Создание релиза
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: daily-update
-          release_name: Daily Update
+          tag_name: daily-update-$(date +'%Y-%m-%d')
+          release_name: Daily Update $(date +'%Y-%m-%d')
           draft: false
           prerelease: false
 
-      # Загрузка ghost.srs в релиз
       - name: Upload ghost.srs
         uses: actions/upload-release-asset@v1
         env:
@@ -59,7 +56,6 @@ jobs:
           asset_name: ghost.srs
           asset_content_type: application/octet-stream
 
-      # Загрузка ghost.dat в релиз
       - name: Upload ghost.dat
         uses: actions/upload-release-asset@v1
         env:
