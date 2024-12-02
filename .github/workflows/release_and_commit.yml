@@ -22,6 +22,7 @@ jobs:
           curl -L -o ghost.dat https://github.com/jameszeroX/zkeen-domains/releases/latest/download/zkeen.dat
 
       - name: Commit Changes
+        id: commit_changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -30,24 +31,20 @@ jobs:
           git add ghost.srs ghost.dat
           if git diff-index --quiet HEAD; then
             echo "No changes to commit"
+            echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
           else
             git commit -m "Update ghost files"
             git push
+            echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
           fi
 
       - name: Generate Tag Name
         id: generate_tag
         run: echo "tag_name=daily-update-$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      - name: Check for Changes Before Release
-        id: check_changes
-        run: |
-          git fetch --all
-          git diff --quiet HEAD origin/main || echo "Changes detected" >> $GITHUB_ENV
-
       - name: Create Release
         id: create_release
-        if: env.CHANGES_DETECTED == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'true'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +55,7 @@ jobs:
           prerelease: false
 
       - name: Upload ghost.srs
-        if: env.CHANGES_DETECTED == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'true'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,7 +66,7 @@ jobs:
           asset_content_type: application/octet-stream
 
       - name: Upload ghost.dat
-        if: env.CHANGES_DETECTED == 'Changes detected'
+        if: env.CHANGES_DETECTED == 'true'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
