@@ -21,6 +21,22 @@ jobs:
         run: |
           curl -L -o ghost.dat https://github.com/jameszeroX/zkeen-domains/releases/latest/download/zkeen.dat
 
+      - name: Download phantom-domain.srs
+        run: |
+          curl -L -o phantom-domain.srs https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-domain-refilter_domains.srs
+
+      - name: Download phantom-ipsum.srs
+        run: |
+          curl -L -o phantom-ipsum.srs https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-ip-refilter_ipsum.srs
+
+      - name: Download phantom-ipsum.dat
+        run: |
+          curl -L -o phantom-ipsum.dat https://github.com/1andrevich/Re-filter-lists/releases/latest/download/geoip.dat
+
+      - name: Download phantom-domain.dat
+        run: |
+          curl -L -o phantom-domain.dat https://github.com/1andrevich/Re-filter-lists/releases/latest/download/geosite.dat
+
       - name: Commit Changes
         id: commit_changes
         env:
@@ -28,12 +44,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ghost.srs ghost.dat
+          git add ghost.srs ghost.dat phantom-domain.srs phantom-ipsum.srs phantom-ipsum.dat phantom-domain.dat
           if git diff-index --quiet HEAD; then
             echo "No changes to commit"
             echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
           else
-            git commit -m "Update ghost files"
+            git commit -m "Update ghost and phantom files"
             git push
             echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
           fi
@@ -74,4 +90,48 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ghost.dat
           asset_name: ghost.dat
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-domain.srs
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-domain.srs
+          asset_name: phantom-domain.srs
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-ipsum.srs
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-ipsum.srs
+          asset_name: phantom-ipsum.srs
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-ipsum.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-ipsum.dat
+          asset_name: phantom-ipsum.dat
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-domain.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-domain.dat
+          asset_name: phantom-domain.dat
           asset_content_type: application/octet-stream
