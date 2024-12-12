@@ -1,4 +1,4 @@
-name: Ghost Release and Commit
+name: force Ghost Release and Commit
 
 on:
   workflow_dispatch:
