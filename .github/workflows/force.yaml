@@ -49,7 +49,7 @@ jobs:
 
       - name: Generate Tag Name
         id: generate_tag
-        run: echo "tag_name=daily-update-$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
+        run: echo "tag_name=daily-update-date-$(date +'%Y-%m-%d')-time-$(date +'%H-%M-%S')" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
