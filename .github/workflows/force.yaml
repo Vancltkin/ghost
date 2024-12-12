@@ -63,19 +63,69 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Assets
+      - name: Upload ghost.srs
         if: env.CHANGES_DETECTED == 'true'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: |
-            ghost.srs
-            ghost.dat
-            phantom-domain.srs
-            phantom-ipsum.srs
-            phantom-ipsum.dat
-            phantom-domain.dat
-          asset_name: ${{ github.event.release.tag_name }}_assets
+          asset_path: ghost.srs
+          asset_name: ghost.srs
           asset_content_type: application/octet-stream
+
+      - name: Upload ghost.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ghost.dat
+          asset_name: ghost.dat
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-domain.srs
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-domain.srs
+          asset_name: phantom-domain.srs
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-ipsum.srs
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-ipsum.srs
+          asset_name: phantom-ipsum.srs
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-ipsum.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-ipsum.dat
+          asset_name: phantom-ipsum.dat
+          asset_content_type: application/octet-stream
+
+      - name: Upload phantom-domain.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: phantom-domain.dat
+          asset_name: phantom-domain.dat
+          asset_content_type: application/octet-stream
+
