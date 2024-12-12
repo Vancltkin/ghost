@@ -11,3 +11,22 @@ https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
 https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.srs
 
 https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.dat
+
+
+# phantom (domain/ipsum)
+
+#1 Вариант
+
+https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.srs
+https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.srs
+
+https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.dat
+https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
+
+#2 Вариант
+
+https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.srs
+https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.srs
+
+https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.dat
+https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.dat
