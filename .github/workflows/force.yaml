@@ -19,6 +19,10 @@ jobs:
         run: |
           curl -L -o ghost.dat https://github.com/jameszeroX/zkeen-domains/releases/latest/download/zkeen.dat
 
+      - name: Download ghost-ipsum.dat
+        run: |
+          curl -L -o ghost-ipsum.dat https://github.com/jameszeroX/zkeen-ip/releases/latest/download/zkeenip.dat     
+
       - name: Download phantom-domain.srs
         run: |
           curl -L -o phantom-domain.srs https://github.com/1andrevich/Re-filter-lists/releases/latest/download/ruleset-domain-refilter_domains.srs
@@ -42,7 +46,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ghost.srs ghost.dat phantom-domain.srs phantom-ipsum.srs phantom-ipsum.dat phantom-domain.dat
+          git add ghost.srs ghost.dat ghost-ipsum.dat phantom-domain.srs phantom-ipsum.srs phantom-ipsum.dat phantom-domain.dat
           git commit --allow-empty -m "Force update ghost and phantom files"
           git push --force
           echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
@@ -83,6 +87,17 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ghost.dat
           asset_name: ghost.dat
+          asset_content_type: application/octet-stream
+
+      - name: Upload ghost-ipsum.dat
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ghost-ipsum.dat
+          asset_name: ghost-ipsum.dat
           asset_content_type: application/octet-stream
 
       - name: Upload phantom-domain.srs
