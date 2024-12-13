@@ -89,3 +89,21 @@ crontab -e
 
 0 5 * * * wget -O /usr/share/xray/phantom-ipsum.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
+- 3
+
+ip(ext:"ghost-ipsum.dat:discord") && network(udp) && port(50000-50030) -> proxy
+ip(ext:"ghost-ipsum.dat:amazon")->proxy
+ip(ext:"ghost-ipsum.dat:cloudflare")->proxy
+ip(ext:"ghost-ipsum.dat:digitalocean")->proxy
+ip(ext:"ghost-ipsum.dat:google")->proxy
+ip(ext:"ghost-ipsum.dat:hetzner")->proxy
+ip(ext:"ghost-ipsum.dat:meta")->proxy
+ip(ext:"ghost-ipsum.dat:telegram")->proxy
+
+
+domain(ext:"ghost.dat:domains")->proxy
+domain(ext:"ghost.dat:other")->proxy
+domain(ext:"ghost.dat:politic")->proxy
+domain(ext:"ghost.dat:youtube")->proxy
+domain(ext:"ghost.dat:bypass")->direct
+
