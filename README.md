@@ -93,6 +93,16 @@ crontab -e
 
 ip(ext:"ghost-ipsum.dat:discord") && network(udp) && port(50000-50030) -> proxy
 
+domain(ext:"ghost.dat:bypass")->direct
+
+domain(ext:"ghost.dat:domains")->proxy
+
+domain(ext:"ghost.dat:other")->proxy
+
+domain(ext:"ghost.dat:politic")->proxy
+
+domain(ext:"ghost.dat:youtube")->proxy
+
 ip(ext:"ghost-ipsum.dat:amazon")->proxy
 
 ip(ext:"ghost-ipsum.dat:cloudflare")->proxy
@@ -106,17 +116,3 @@ ip(ext:"ghost-ipsum.dat:hetzner")->proxy
 ip(ext:"ghost-ipsum.dat:meta")->proxy
 
 ip(ext:"ghost-ipsum.dat:telegram")->proxy
-
-ᅠ ᅠ
-ᅠ ᅠ
-
-domain(ext:"ghost.dat:domains")->proxy
-
-domain(ext:"ghost.dat:other")->proxy
-
-domain(ext:"ghost.dat:politic")->proxy
-
-domain(ext:"ghost.dat:youtube")->proxy
-
-domain(ext:"ghost.dat:bypass")->direct
-
