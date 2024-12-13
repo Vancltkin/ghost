@@ -10,13 +10,13 @@
 
 https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
 
---------------
+
 https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
 
 crontab -e
 
 0 5 * * * wget -O /usr/share/xray/ghost.dat https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
----------------
+
 
 #2 Вариант
 
@@ -39,6 +39,7 @@ https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 crontab -e
 
 0 5 * * * wget -O /usr/share/xray/phantom-domain.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.dat
+
 0 5 * * * wget -O /usr/share/xray/phantom-ipsum.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
 
