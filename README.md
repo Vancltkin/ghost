@@ -6,7 +6,7 @@
 [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
  и другие
 
-# ghost
+# ghost - легкий список содержит базовые данные
 
 #1 singbox (ghost/ghost-ipsum)
 
@@ -33,7 +33,8 @@
 
 
 
-# phantom 
+
+# phantom - огромный список содержит много всего и возможно много лишнего
 
 #1 singbox (phantom-domain/phantom-ipsum)
 
@@ -61,6 +62,13 @@
 
 
 
+# specter-ads-small - маленький список с рекламой
+
+- https://github.com/Vancltkin/ghost/releases/latest/download/specter-ads-small.dat
+
+Зеркало
+
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/specter-ads-small.dat
 
 
 
