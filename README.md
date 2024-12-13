@@ -6,47 +6,64 @@
 
 # ghost
 
-#1 Вариант
+#1 singbox (ghost/ghost-ipsum)
 
-https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
+- https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
+-
+
+Зеркала 
+  
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.srs
+- 
+
+#2 xray (ghost/ghost-ipsum)
+
+- https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
+-
+
+Зеркала 
+  
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.dat
+- 
 
 
-https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
 
-crontab -e
+# phantom 
 
-0 5 * * * wget -O /usr/share/xray/ghost.dat https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
+#1 singbox (phantom-domain/phantom-ipsum)
+
+- https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.srs
+- https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.srs
+
+Зеркала 
+
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.srs
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.srs
 
 
-#2 Вариант
+#2 xray (phantom-domain/phantom-ipsum)
 
-https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.srs
+- https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.dat
+- https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
-https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.dat
+Зеркала 
+
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.dat
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.dat
 
 
-# phantom (domain/ipsum)
 
-#1 Вариант
 
-https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.srs
-https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.srs
 
-https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.dat
-https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
+
+
+# other settings (utils)
 
 crontab -e
 
 0 5 * * * wget -O /usr/share/xray/phantom-domain.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-domain.dat
-
 0 5 * * * wget -O /usr/share/xray/phantom-ipsum.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
 
-#2 Вариант
 
-https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.srs
-https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.srs
-
-https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-domain.dat
-https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-ipsum.dat
