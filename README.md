@@ -9,22 +9,22 @@
 #1 singbox (ghost/ghost-ipsum)
 
 - https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
--
+- можно поискать тут [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
 
 Зеркала 
   
 - https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.srs
-- 
+- можно поискать тут [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
 
 #2 xray (ghost/ghost-ipsum)
 
 - https://github.com/Vancltkin/ghost/releases/latest/download/ghost.dat
--
+- https://github.com/Vancltkin/ghost/releases/latest/download/ghost-ipsum.dat
 
 Зеркала 
   
 - https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.dat
-- 
+- https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost-ipsum.dat
 
 
 
