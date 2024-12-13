@@ -89,5 +89,3 @@ crontab -e
 
 0 5 * * * wget -O /usr/share/xray/phantom-ipsum.dat https://github.com/Vancltkin/ghost/releases/latest/download/phantom-ipsum.dat
 
-
-
