@@ -135,5 +135,5 @@ domain(ext:"phantom-ipsum.dat:refilter")->proxy
 
 domain(ext:"phantom-domain.dat:refilter")->proxy
 
-[openwrt]([https://github.com/legiz-ru/sb-rule-sets](https://habr.com/ru/articles/773696/))
+[openwrt](https://habr.com/ru/articles/773696/)
 
