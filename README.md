@@ -8,7 +8,7 @@
 
 # ghost - легкий список содержит базовые данные
 
-#1 singbox (ghost/ghost-ipsum)
+#1 singbox (ghost/ghost-ip-discord)
 
 - https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
 - https://github.com/Vancltkin/ghost/releases/latest/download/ghost-ip-discord.srs
