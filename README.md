@@ -6,7 +6,7 @@
 [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
  и другие
 
-# ghost - легкий список содержит базовые данные
+# ghost - легкий список содержит базовые правила
 
 #1 singbox (ghost/ghost-ip-discord)
 
@@ -32,7 +32,7 @@
 
 
 
-# phantom - огромный список содержит много всего и возможно много лишнего
+# phantom - огромный список правил (возможно много лишнего)
 
 #1 singbox (phantom-domain/phantom-ipsum)
 
