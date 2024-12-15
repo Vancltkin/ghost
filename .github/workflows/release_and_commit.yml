@@ -17,6 +17,10 @@ jobs:
         run: |
           curl -L -o ghost.srs https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs
 
+      - name: Download ghost-ip-discord.srs
+        run: |
+          curl -L -o ghost-ip-discord.srs https://github.com/legiz-ru/sb-rule-sets/raw/main/discord-voice-ip-list.srs
+
       - name: Download ghost.dat
         run: |
           curl -L -o ghost.dat https://github.com/jameszeroX/zkeen-domains/releases/latest/download/zkeen.dat
@@ -48,7 +52,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ghost.srs ghost.dat ghost-ipsum.dat phantom-domain.srs phantom-ipsum.srs phantom-ipsum.dat phantom-domain.dat
+          git add ghost.srs ghost-ip-discord.srs ghost.dat ghost-ipsum.dat phantom-domain.srs phantom-ipsum.srs phantom-ipsum.dat phantom-domain.dat
           if git diff-index --quiet HEAD; then
             echo "No changes to commit"
             echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
@@ -83,6 +87,17 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ghost.srs
           asset_name: ghost.srs
+          asset_content_type: application/octet-stream
+
+      - name: Upload ghost-ip-discord.srs
+        if: env.CHANGES_DETECTED == 'true'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ghost-ip-discord.srs
+          asset_name: ghost-ip-discord.srs
           asset_content_type: application/octet-stream
 
       - name: Upload ghost.dat
