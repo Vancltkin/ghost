@@ -62,12 +62,21 @@
 
 # specter-ads-small - маленький список с рекламой
 
-- https://github.com/Vancltkin/ghost/releases/latest/download/specter-ads-small.dat
+#1 singbox
+
+- 
 
 Зеркало
 
-- https://raw.githubusercontent.com/Vancltkin/ghost/main/specter-ads-small.dat
+- 
 
+#2 xray
+
+- 
+
+Зеркало
+
+- 
 
 
 
