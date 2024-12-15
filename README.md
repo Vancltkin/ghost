@@ -11,14 +11,12 @@
 #1 singbox (ghost/ghost-ipsum)
 
 - https://github.com/Vancltkin/ghost/releases/latest/download/ghost.srs
-- можно поискать тут [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
+- https://github.com/Vancltkin/ghost/releases/latest/download/ghost-ip-discord.srs
 
 Зеркала 
   
 - https://raw.githubusercontent.com/Vancltkin/ghost/main/ghost.srs
-- можно поискать тут [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
-
-
+- https://github.com/Vancltkin/ghost/releases/latest/download/ghost-ip-discord.srs
 
 
 #2 xray (ghost/ghost-ipsum)
