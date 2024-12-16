@@ -4,6 +4,7 @@
 [zkeen-domains](https://github.com/jameszeroX/zkeen-domains)  
 [zkeen-ip](https://github.com/jameszeroX/zkeen-ip)  
 [sb-rule](https://github.com/legiz-ru/sb-rule-sets)
+[openwrt](https://habr.com/ru/articles/773696/)
  и другие
 
 # ghost - легкий список содержит базовые правила
@@ -142,7 +143,8 @@ ip(ext:"phantom-ipsum.dat:refilter")->proxy
 
 domain(ext:"phantom-domain.dat:refilter")->proxy
 
-[openwrt](https://habr.com/ru/articles/773696/)
+
+# script openwrt
 
 wget -O /root/phantom-openwrt.sh https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-openwrt.sh && chmod 0755 /root/phantom-openwrt.sh && sh /root/phantom-openwrt.sh
 
