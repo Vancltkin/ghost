@@ -125,8 +125,5 @@ echo -e "${YELLOW}domain(ext:\"ghost.dat:youtube\") -> proxy${RESET}"
 echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:amazon\") -> proxy${RESET}"
 echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:cloudflare\") -> proxy${RESET}"
 echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:digitalocean\") -> proxy${RESET}"
-echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:google\") -> proxy${RESET}"
 echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:hetzner\") -> proxy${RESET}"
 echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:meta\") -> proxy${RESET}"
-echo -e "${YELLOW}ip(ext:\"ghost-ipsum.dat:telegram\") -> proxy${RESET}"
-
