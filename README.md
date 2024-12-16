@@ -138,9 +138,11 @@ ip(ext:"ghost-ipsum.dat:telegram")->proxy
 
 или
 
-domain(ext:"phantom-ipsum.dat:refilter")->proxy
+ip(ext:"phantom-ipsum.dat:refilter")->proxy
 
 domain(ext:"phantom-domain.dat:refilter")->proxy
 
 [openwrt](https://habr.com/ru/articles/773696/)
+
+wget -O /root/phantom-openwrt.sh https://raw.githubusercontent.com/Vancltkin/ghost/main/phantom-openwrt.sh && chmod 0755 /root/phantom-openwrt.sh && sh /root/phantom-openwrt.sh
 
