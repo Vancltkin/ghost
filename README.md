@@ -61,25 +61,6 @@
 
 
 
-# specter-ads-small - маленький список с рекламой
-
-#1 singbox
-
-- 
-
-Зеркало
-
-- 
-
-#2 xray
-
-- 
-
-Зеркало
-
-- 
-
-
 
 # other settings (utils)
 
